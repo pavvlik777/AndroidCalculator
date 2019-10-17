@@ -1,0 +1,48 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'org.ajoberstar:grgit:1.4.0'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+ext {
+    git = org.ajoberstar.grgit.Grgit.open()
+    tags = git.tag.list()
+    tag = ""
+    tag = tags[tags.size() - 1].getName()
+    describe = "${git.describe()}"
+    describe = describe.substring(tag.length() + 1)
+    index = describe.indexOf("-")
+    if(index != -1)
+        describe = describe.substring(0, index)
+    else
+        describe = "0"
+
+    major = tag.substring(0, tag.indexOf("."))
+    minor = tag.substring(tag.indexOf(".") + 1)
+
+    gitVersionCode = major.toInteger() * 10000 + minor.toInteger() * 100 + describe.toInteger()
+    describe = "." + describe
+    gitVersionName = "${tag}" + "${describe}"
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
