@@ -2,6 +2,7 @@ package com.example.calculator.Activities;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.app.Fragment;
 import android.os.Bundle;
 
 import com.example.calculator.Models.MainActivityModel;
@@ -17,5 +18,11 @@ public class MainActivity extends FragmentActivity {
 
         model = new MainActivityModel();
         model.Initialize(this);
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        model.Destroy(this);
     }
 }

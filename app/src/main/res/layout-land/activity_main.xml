@@ -8,7 +8,17 @@
     tools:context=".Activities.MainActivity">
 
     <Button
-        android:id="@+id/result_btn2"
+        android:id="@+id/clear_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/clear_btn"
+        app:layout_constraintBottom_toTopOf="@+id/result_btn"
+        app:layout_constraintStart_toEndOf="@+id/numbers_fragment" />
+
+    <Button
+        android:id="@+id/result_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
