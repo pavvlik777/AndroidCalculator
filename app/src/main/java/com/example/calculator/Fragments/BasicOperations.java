@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.calculator.Models.BasicOperationsModel;
 import com.example.calculator.R;
 
 public class BasicOperations extends Fragment {
@@ -15,13 +16,7 @@ public class BasicOperations extends Fragment {
         // Required empty public constructor
     }
 
-    public static BasicOperations newInstance() {
-        BasicOperations fragment = new BasicOperations();
-        Bundle args = new Bundle();
-
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private BasicOperationsModel model;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,6 +26,9 @@ public class BasicOperations extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_basic_operations, container, false);
+        View view = inflater.inflate(R.layout.fragment_basic_operations, container, false);
+        model = new BasicOperationsModel();
+        model.Initialize(view);
+        return view;
     }
 }
