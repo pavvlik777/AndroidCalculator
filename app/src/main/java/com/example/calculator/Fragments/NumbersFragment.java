@@ -1,7 +1,5 @@
-package com.example.calculator;
+package com.example.calculator.Fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,13 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class BasicOperations extends Fragment {
-    public BasicOperations() {
+import com.example.calculator.R;
+
+public class NumbersFragment extends Fragment {
+    public NumbersFragment() {
         // Required empty public constructor
     }
 
-    public static BasicOperations newInstance() {
-        BasicOperations fragment = new BasicOperations();
+    public static NumbersFragment newInstance() {
+        NumbersFragment fragment = new NumbersFragment();
         Bundle args = new Bundle();
 
         fragment.setArguments(args);
@@ -24,13 +24,14 @@ public class BasicOperations extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_basic_operations, container, false);
+        return inflater.inflate(R.layout.fragment_numbers, container, false);
     }
 }

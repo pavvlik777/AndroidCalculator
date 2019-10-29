@@ -8,34 +8,13 @@
     tools:context=".Activities.MainActivity">
 
     <Button
-        android:id="@+id/result_btn"
+        android:id="@+id/result_btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:text="@string/result"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <FrameLayout
-        android:id="@+id/operations"
-        android:layout_width="105dp"
-        android:layout_height="342dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/result_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/numbers_fragment">
-
-    </FrameLayout>
-
-    <Button
-        android:id="@+id/ModeToggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginBottom="25dp"
-        android:text="@string/switcher"
-        app:layout_constraintBottom_toTopOf="@+id/numbers_fragment"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/numbers_fragment" />
 
     <TextView
         android:id="@+id/display"
@@ -54,5 +33,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout="@layout/fragment_numbers" />
+
+    <fragment
+        android:id="@+id/basic_operations"
+        android:name="com.example.calculator.Fragments.BasicOperations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout="@layout/fragment_basic_operations" />
+
+    <fragment
+        android:id="@+id/scientific_operations"
+        android:name="com.example.calculator.Fragments.ScientificOperations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/basic_operations"
+        tools:layout="@layout/fragment_scientific_operations" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
