@@ -50,7 +50,6 @@ public class MainActivityModel implements Observer {
                 }
             });
         }
-        //TODO
 
         Button resultBtn = activity.findViewById(R.id.result_btn);
         resultView = activity.findViewById(R.id.display);
@@ -81,6 +80,17 @@ public class MainActivityModel implements Observer {
                 public void onClick(View view)
                 {
                     CalculationSingleton.getInstance().ClearData();
+                }
+            });
+        }
+        Button backspaceBtn = activity.findViewById(R.id.backspace_btn);
+        if(backspaceBtn != null)
+        {
+            backspaceBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view)
+                {
+                    CalculationSingleton.getInstance().BackSpace();
                 }
             });
         }

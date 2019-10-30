@@ -11,7 +11,7 @@
         android:id="@+id/clear_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="5dp"
         android:layout_marginBottom="24dp"
         android:text="@string/clear_btn"
         app:layout_constraintBottom_toTopOf="@+id/numbers_fragment"
@@ -41,7 +41,7 @@
         android:id="@+id/ModeToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="5dp"
         android:layout_marginBottom="25dp"
         android:text="@string/switcher"
         app:layout_constraintBottom_toTopOf="@+id/numbers_fragment"
@@ -52,6 +52,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,5 +65,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout="@layout/fragment_numbers" />
+
+    <Button
+        android:id="@+id/backspace_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/backspace_btn"
+        app:layout_constraintBottom_toTopOf="@+id/numbers_fragment"
+        app:layout_constraintStart_toEndOf="@+id/clear_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

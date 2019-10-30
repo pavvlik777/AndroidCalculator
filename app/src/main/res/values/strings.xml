@@ -2,6 +2,7 @@
     <string name="app_name">Calculator</string>
     <string name="switcher">Mode</string>
     <string name="clear_btn">Clear</string>
+    <string name="backspace_btn">Back</string>
 
     <string name="number_1">1</string>
     <string name="number_2">2</string>

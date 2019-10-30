@@ -8,6 +8,16 @@
     tools:context=".Activities.MainActivity">
 
     <Button
+        android:id="@+id/backspace_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/backspace_btn"
+        app:layout_constraintBottom_toTopOf="@+id/clear_btn"
+        app:layout_constraintStart_toEndOf="@+id/numbers_fragment" />
+
+    <Button
         android:id="@+id/clear_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,6 +41,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

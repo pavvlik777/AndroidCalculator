@@ -1,9 +1,12 @@
 package com.example.calculator.Singletons;
 
 import com.example.calculator.BuildConfig;
+import com.example.calculator.CalculationClasses.Parser;
+import com.example.calculator.CalculationClasses.Tokens.Token;
 import com.example.calculator.Enums.CalculatorMode;
 import com.example.calculator.Enums.TokenType;
 
+import java.net.PasswordAuthentication;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -30,6 +33,7 @@ public class CalculationSingleton extends Observable {
         return lastError;
     }
 
+    private Parser parser;
     private String currentData;
     private boolean isDemo;
     private CalculatorMode calculatorMode;
@@ -51,8 +55,9 @@ public class CalculationSingleton extends Observable {
 
     private CalculationSingleton()
     {
+        parser = new Parser();
         lastError = "";
-        currentData = "";
+        currentData = "|";
         isDemo = BuildConfig.FLAVOR.equals("demo");
         calculatorMode = CalculatorMode.BASIC;
     }
@@ -70,20 +75,22 @@ public class CalculationSingleton extends Observable {
         }
         if(currentData.length() == 255)
             return true;
-        SetCurrentData(currentData.concat(data));
-        //TODO
+        if(!parser.IsCanAddComma() && value == TokenType.Comma)
+            return true;
+        SetCurrentData(parser.Add(value, data));
         return true;
     }
 
     public String GetNextParentheses()
     {
-        //TODO
-        return "(";
+        Token temp = parser.NextParentheses();
+        return temp.getValue();
     }
 
     public void SetCurrentData(String value)
     {
         currentData = value;
+        currentData = currentData.concat("|");
         this.setChanged();
         this.notifyObservers();
         this.clearChanged();
@@ -96,13 +103,28 @@ public class CalculationSingleton extends Observable {
 
     public void ClearData()
     {
-        SetCurrentData("");
+        SetCurrentData(parser.Clear());
+    }
+
+    public void BackSpace()
+    {
+        if(currentData.length() >= 2)
+        {
+            SetCurrentData(parser.Backspace());
+        }
     }
 
     public boolean CalculateResult()
     {
-        //TODO
-        SetCurrentData("Hello");
-        return true;
+        if(parser.Calculate())
+        {
+            SetCurrentData(parser.getResult());
+            return true;
+        }
+        else
+        {
+            lastError = parser.getLastError();
+            return false;
+        }
     }
 }
