@@ -20,7 +20,8 @@ ext {
     tag = ""
     tag = tags[tags.size() - 1].getName()
     describe = "${git.describe()}"
-    describe = describe.substring(tag.length() + 1)
+    if(describe.length() != tag.length())
+        describe = describe.substring(tag.length() + 1)
     index = describe.indexOf("-")
     if(index != -1)
         describe = describe.substring(0, index)
