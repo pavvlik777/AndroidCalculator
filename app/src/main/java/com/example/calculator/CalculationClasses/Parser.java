@@ -420,6 +420,11 @@ public class Parser {
             data.add(new Token(TokenType.Infinity, result));
             fullData.add(new Token(TokenType.Infinity, result));
         }
+        else if(result.equals("-Infinity"))
+        {
+            data.add(new Token(TokenType.MinusInfinity, result));
+            fullData.add(new Token(TokenType.MinusInfinity, result));
+        }
         else if(result.equals("NaN"))
         {
             data.add(new Token(TokenType.NaN, result));
